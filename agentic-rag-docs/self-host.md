@@ -70,7 +70,11 @@ docker run -d --name ollama \
   --gpus all --restart unless-stopped \
   -p <remote-port>:11434 \
   -v ollama_data:/root/.ollama \
+  -v /path/to/project/data:/project/data \
   ollama/ollama:latest
+
+# The additional volume mount exposes your project's RAG database directory
+# to the Ollama container so it can be used during retrieval.
 
 # Make sure it is running properly
 
